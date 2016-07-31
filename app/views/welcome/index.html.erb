@@ -1,0 +1,28 @@
+<h1>Best jobs on the internet</h1>
+<p>There are some of the best web developer jobs</p>
+
+
+<% if current_user %>
+<h1>Welcome <%= current_user.first_name %></h1>
+
+  <div class="card">
+    <img class="card-img-top" src="https://pbs.twimg.com/profile_images/3328128088/0ad10a6c33a73cbf99840f95410d4ff5.png" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %></h4>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="job-search">
+      <input type="text" placeholder="Skill" id="skill1">
+      <input type="text" placeholder="Skill" id="skill2">
+      <input type="text" placeholder="Skill" id="skill3">
+      <input type="submit" id="usersearch">
+    </div>
+  </div>
+
+  <div id="jobs">
+      <h2>All the jobs related to your skills</h2>
+  </div>
+
+<% end %>

@@ -1,0 +1,14 @@
+ <% if current_user %>
+  <div class="card">
+    <img class="card-img-top" src="" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %></h4>
+      <p class="card-text"></p>
+    </div>
+  </div>
+
+  <div id="jobs">
+
+  </div>
+
+<% end %>
