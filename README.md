@@ -1,24 +1,18 @@
-# README
+# Synopsis
+The Job-Search App is developed using ruby on rails.  The app have an authentication system using bcrypt gem. The users can be able search for the jobs using keywords like html, css, javascript etc.  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+#User Stories
+    
+    ##Guest 
+    * Guest can view all the tech jobs on the home page
+    * Guest can sign up
 
-* System dependencies
 
-* Configuration
+    ##User
+    *User can search for jobs based on keywords like html, css, javascript etc
 
-* Database creation
+#API
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Authenticjobs
