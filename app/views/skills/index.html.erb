@@ -1,8 +1,7 @@
+<% if current_user %>
 <h1>Skills</h1>
 <p>Please enter your skills to help you find jobs.</p>
 <p>We will do our best to find you job that matches your skills.</p>
-
-
 
 <div class="container">
   <div class="form input-fields">
@@ -22,3 +21,6 @@
     <% end %>
   </div>
 </div>
+<%else%>
+    <h1>You cannot access this page</h1>
+<%end%>

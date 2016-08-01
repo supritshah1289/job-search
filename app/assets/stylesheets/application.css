@@ -32,6 +32,15 @@
   margin-left: 10px;
   margin-bottom: 10px;
   display: inline-block;
+  float: left;
+}
+
+/*.card:after{
+  clear: left;
+}*/
+
+h2{
+  clear: left;
 }
 
 ul{
@@ -40,6 +49,7 @@ ul{
 
 
 .container {
+  margin: 0 auto;
   padding: 0;
   width: 100%;
 }

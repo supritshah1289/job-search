@@ -2,11 +2,14 @@
 <h1>Welcome <%= current_user.first_name %></h1>
 
 
-<div class="contanier">
+<div class="container">
   <div class="card">
     <img class="card-img-top" src="http://coussej.github.io/images/avatar.png" height="200" width="200" >
     <div class="card-block">
       <h4 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %></h4>
+      <p><%= @user_skill.skill1 %> | <%= @user_skill.skill2 %> | <%= @user_skill.skill3 %> |
+      <%= @user_skill.skill4 %> | <%= @user_skill.skill5 %> </p>
+
     </div>
   </div>
 
@@ -21,8 +24,9 @@
 </div>
 
 <div class="container">
+  <h2>All the jobs related to your skills</h2>
   <div id="jobs">
-      <h2>All the jobs related to your skills</h2>
+
 
   </div>
 </div>
