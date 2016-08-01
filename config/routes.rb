@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'skills/index'
+
   root 'welcome#index'
   get 'signup' => 'users#new'
   resources :users
@@ -8,7 +10,10 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/jobs' => 'jobs#new'
-  resources :jobs
+  get '/skills' => 'skills#index' #returns index page with form to add new skills
+  post '/skills' => 'skills#create'
+  # resources :skills
+  # resources :jobs
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

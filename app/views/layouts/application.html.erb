@@ -21,13 +21,18 @@
         <div class="nav pull-right">
           <% if current_user %>
             <ul>
-              <li><%= current_user.email %></li>
+              <li><a href="/"><img src="assets/logo.png" alt=""></a></li>
+              <li><%= link_to "Home", '/' %></li>
+              <li><%= link_to "Skills", 'skills' %></a></li>
               <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+              <li><%= current_user.email %></li>
             </ul>
           <% else %>
             <ul>
+              <li><a href="/"><img src="assets/logo.png" height="30px"></a></li>
               <li><%= link_to "Login", 'login' %></a></li>
               <li><%= link_to "Signup", 'signup' %></a></li>
+
             </ul>
           <% end %>
         </div>

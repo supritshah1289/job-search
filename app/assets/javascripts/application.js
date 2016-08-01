@@ -15,78 +15,74 @@
 //= require turbolinks
 //= require_tree .
 
-
-function renderJob( job ) {
-
-  job.rsp.listings.listing.forEach(function(job){
-    var $container    =    $('#jobs');
-
+function renderJob(job) {
+    console.log(job)
+    let $container = $('#jobs');
     let $div = $('<div class="card">')
-    // let $img = $('<img class="card-img-top">').attr('src',job.company.logo)
     let $div2 = $('<div class="card-block">')
-    let $h4  = $('<h4>').text(job.category.name)
-    let $p   = $('<p>').text("Company name :"+ " "+job.company.name)
-    let $p2  = $('<p>').text("Job Type :"+ job.type.name)
-    let $p3  = $('<p>').text("Job Location :"+ job.company.location.name)
-    let $a   = $('<a target="_blank">').attr('href', job.apply_url).text("Apply")
-    $div2.append($h4,$p,$p2,$p3,$a)
+    let $h4 = $('<h4>').text(job.category.name)
+    let $p = $('<p>').text("Company name :" + " " + job.company.name)
+    let $p2 = $('<p>').text("Job Type :" + job.type.name)
+    let $p3 = $('<p>').text("Job Location :" + job.company.location.name)
+    let $p4 = $('<p>').text("Job posted date:" + job.post_date)
+    let $a = $('<a target="_blank">').attr('href', job.apply_url).text("Apply")
+    $div2.append($h4, $p, $p2, $p3, $p4, $a)
     $div.append($div2)
     $container.append($div)
 
+}
+
+function renderGuestJob(job) {
+
+    let $container = $('#guest-jobs');
+    let $div = $('<div class="card">')
+    let $div2 = $('<div class="card-block">')
+    let $h4 = $('<h4>').text(job.category.name)
+    let $p = $('<p>').text("Company name :" + " " + job.company.name)
+    let $p2 = $('<p>').text("Job Type :" + job.type.name)
+    let $p3 = $('<p>').text("Job Location :" + job.company.location.name)
+    let $p4 = $('<p>').text("Job posted date:" + job.post_date)
+    let $a = $('<a target="_blank">').attr('href', job.apply_url).text("Apply")
+    $div2.append($h4, $p, $p2, $p3, $p4, $a)
+    $div.append($div2)
+    $container.append($div)
+
+}
 
 
-    // let $divCard      =    $('<card class="card job">')
-    // let $ulCard       =    $('<ul class="list-group list-group-flush">')
-    // let $Categoryli   =    $('<li class="list-group-item">').text("Job Title: "+job.category.name)
-    // let $Typeli       =    $('<li class="list-group-item">').text("Job Type: "+job.type.name)
-    // let $locationLi   =    $('<li class="list-group-item">').text("Job Location: "+job.company.location.name)
-    // let $companyName  =    $('<li class="list-group-item">').text("Company name:"+job.company.name)
-    // let $companyUrl   =    $('<li class="list-group-item">').text("Company website:"+job.company.url)
-    // let $companyLogo  =    $('<li class="list-group-item">').text("Company Logo: "+job.company.logo)
-    // let $title        =    $('<li class="list-group-item">').text("Job Title: "+job.title)
-    // let $description  =    $('<p>').text("Job Description"+job.description)
-    // let $applyUrl     =    $('<li class="list-group-item">').text("Apply here: "+job.apply_url)
-    // let $postedDate   =    $('<p>').text("Job Posted Date:"+job.post_date)
 
-    // $ulCard.append($Categoryli,$Typeli,$locationLi,$companyName,$companyUrl,$companyLogo,$title, $description, $applyUrl, $postedDate)
-    // $divCard.append($ulCard)
-    // $container.append($divCard)
-  })
-
-
+function getGuestJobs(){
+  $.getJSON('/jobs?keywords=react,html,css,ruby,JavaScript,mongodb,postgresql').done(function(jobs) {
+    jobs.rsp.listings.listing.forEach(function(job) {
+                renderGuestJob(job);
+            })
+        })
 }
 
 function getjobs() {
 
-  let  usersearch = {}
+    let usersearch = {}
 
+    $('#usersearch').on('click', function() {
+        $userInput1 = $('#skill1').val()
+        $userInput2 = $('#skill2').val()
+        $userInput3 = $('#skill3').val()
 
+        usersearch['keywords'] = $.trim($userInput1) + "," + $.trim($userInput2) + "," + $.trim($userInput3)
 
-  $('#usersearch').on('click',function(){
-  $userInput1 = $('#skill1').val()
-  $userInput2 = $('#skill2').val()
-  $userInput3 = $('#skill3').val()
+        let $url = 'keywords=' + usersearch["keywords"]
+        $.getJSON('/jobs?' + $url).done(function(jobs) {
+            jobs.rsp.listings.listing.forEach(function(job) {
+                renderJob(job);
+            })
+        })
 
-
-
-
-  usersearch['keywords'] = $.trim($userInput1) + "," + $.trim($userInput2) + "," +$.trim($userInput3)
-
-  console.log(usersearch)
-  let $url ='keywords=' + usersearch["keywords"]
-  $.getJSON('/jobs?'+$url).done(function( jobs ) {
-    jobs.rsp.listings.listing.forEach(function( job ) {
-      console.log("inside of getjobs", job)
-      renderJob( jobs );
     })
-  })
-
-})
 
 }
 
 
-
 $(function() {
-  getjobs();
+    getjobs();
+    getGuestJobs();
 })
