@@ -1,9 +1,8 @@
 class JobsController < ApplicationController
   def new
-
     keywords = params[:keywords]
-    puts keywords
-    api_key = 
+    puts params
+    api_key = ENV['api_key']
 
      url = "https://authenticjobs.com/api/?api_key=" +api_key + "+&method=aj.jobs.search&perpage=20"
     response = HTTParty.get(url)

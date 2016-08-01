@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-  before_action :current_user
+  # before_action :current_user
 
   def index
     @skill = Skill.new
@@ -7,10 +7,8 @@ class SkillsController < ApplicationController
 
 
   def create
-  @user = session[:user_id]
-  puts "user id #{@user}"
+    @skill = Skill.new(skill_params.merge(user_id: current_user.id))
 
-    @skill = User.find(session[:user_id]).Skill.new(skill_params)
     if @skill.save
         flash[:success] = "Skills added!"
         redirect_to root_url
@@ -18,6 +16,7 @@ class SkillsController < ApplicationController
       head 422
     end
   end
+
 
 
 

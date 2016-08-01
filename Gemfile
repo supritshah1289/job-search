@@ -4,6 +4,8 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'httparty'
 gem 'crack'
+gem 'materialize-sass'
+gem 'dotenv-rails', :groups => [:development, :test]
 #image upload
 gem 'paperclip', '~> 3.0'
 
