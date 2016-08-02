@@ -7,9 +7,9 @@
     <img class="card-img-top" src="http://coussej.github.io/images/avatar.png" height="200" width="200" >
     <div class="card-block">
       <h4 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %></h4>
-      <p><%= @user_skill.skill1 %> | <%= @user_skill.skill2 %> | <%= @user_skill.skill3 %> |
-      <%= @user_skill.skill4 %> | <%= @user_skill.skill5 %> </p>
-
+      <% @skills.each do |s| %>
+        <p id="user_skills"><%=s%></p>
+      <%end%>
     </div>
   </div>
 
@@ -35,14 +35,29 @@
 <%else%>
 
 
-
-
 <div class="container">
-  <h1>Full Stack Web Developer Jobs</h1>
-  <p>Are you looking for full stack web developer jobs? Your search ends here. We will provide you best job on the market, once you become our free member by signing up. Sign up takes less than a minute. We do not save your password or none of our developer will be able to see. Because it is Hashed on our database.</p>
-  <div id="guest-jobs">
+  <div class="left-align intro">
+    <h3>Who we are ?</h3>
+    <p>We provide you best jobs across United States. You have worked really hard to get here and have learn so many new programming languages to find a right job. We would like to help you to find a right IT job. Everyday we will populate you're user dashboard with new jobs that are posted by companies and hiring managers. Let's get started. Creating profile and filling up skills that you have takes less than 5 minutes.</p>
+  </div>
+  <div class="left-align intro">
+    <h4>Why you should become our member ?</h4>
+    <p>
+      After creating profile and filling up skills. Go back to you're dashboard and checkout all the jobs. We will be populating jobs right away. Our team understands that finding job where you enjoy working is paramount importance because you've worked hard through 12 weeks at bootcamps, spending 4 years at universit or graduating from 2 year college.
+    </p>
+  </div>
+  <div class="left-align intro">
+    <h4>What are the benefits you'll have? </h4>
+    <p>Getting relax is also very important for mind and body. We would like our future developers to stay updated with new technologies and new skills.</p>
+    <p>
+      Some of the things we provide our users are guides on how to crack technical interviews, guides to Computer Science concepts, Interview prep also we will provide video tutorials for learning new trending technologies.
+    </p>
 
-    <h2>Full stack web developer jobs</h2>
+  </div>
+
+<div id="guest-jobs">
+
+    <h2 class="center-align">Full stack web developer jobs</h2>
 
   </div>
 </div>

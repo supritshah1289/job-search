@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+
   def new
     keywords = params[:keywords]
     puts params
@@ -9,7 +10,14 @@ class JobsController < ApplicationController
     parsed_body = Crack::XML.parse(response.body)
     # puts parsed_body.to_json
     render json: parsed_body
+    @jobs = parsed_body.to_json
+
   end
+
+  def create
+
+  end
+
 
 
 

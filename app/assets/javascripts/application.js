@@ -51,6 +51,28 @@ function renderGuestJob(job) {
 
 
 
+function getUserSkillJobs(){
+  $user_skills = $('#user_skills').text();
+  $skills = $user_skills.split("|")
+  $url = '/jobs?keywords='
+  $skills_str = $skills.forEach(function(skill){
+    $url += skill + ",";
+  })
+
+  $url_trim = $.trim($url)
+
+  if ($user_skills.length > 2) {
+  $.getJSON($url_trim).done(function(jobs) {
+    jobs.rsp.listings.listing.forEach(function(job) {
+                renderJob(job);
+            })
+        })
+  }
+  else{
+    console.log("User have not entered skills")
+  }
+}
+
 function getGuestJobs(){
   $.getJSON('/jobs?keywords=react,html,css,ruby,JavaScript,mongodb,postgresql').done(function(jobs) {
     jobs.rsp.listings.listing.forEach(function(job) {
@@ -60,9 +82,7 @@ function getGuestJobs(){
 }
 
 function getjobs() {
-
     let usersearch = {}
-
     $('#usersearch').on('click', function() {
         $userInput1 = $('#skill1').val()
         $userInput2 = $('#skill2').val()
@@ -85,4 +105,5 @@ function getjobs() {
 $(function() {
     getjobs();
     getGuestJobs();
+    getUserSkillJobs();
 })

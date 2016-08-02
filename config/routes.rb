@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/jobs' => 'jobs#new'
+  post '/jobs' => 'jobs#create'
+
   get '/skills' => 'skills#index' #returns index page with form to add new skills
   post '/skills' => 'skills#create'
   # resources :skills

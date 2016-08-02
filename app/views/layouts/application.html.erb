@@ -2,6 +2,8 @@
 
 <html>
   <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -10,14 +12,11 @@
 
 <!-- nav container -->
 
+
 <!-- main body container -->
 
     <div class="header">
       <div class="container">
-        <%= link_to root_path do %>
-
-        <% end %>
-
         <div class="nav pull-right">
           <% if current_user %>
             <ul>

@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(version: 20160730192032) do
     t.string   "skill3"
     t.string   "skill4"
     t.string   "skill5"
-    t.string   "skill6"
-    t.string   "skill7"
-    t.string   "skill8"
-    t.string   "skill9"
-    t.string   "skill10"
+    # t.string   "skill6"
+    # t.string   "skill7"
+    # t.string   "skill8"
+    # t.string   "skill9"
+    # t.string   "skill10"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

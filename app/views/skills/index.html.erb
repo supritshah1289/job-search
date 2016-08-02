@@ -5,19 +5,15 @@
 
 <div class="container">
   <div class="form input-fields">
-    <h2> Please enter all the skills</h2>
+    <h3><%=current_user.first_name%></h3>
+    <h4> Please enter all the skills</h4>
     <%= form_for @skill do |f| %>
       <%= f.text_field :skill1, :placeholder => "Skill1" %>
       <%= f.text_field :skill2, :placeholder => "Skill2" %>
       <%= f.text_field :skill3, :placeholder => "Skill3" %>
       <%= f.text_field :skill4, :placeholder => "Skill4" %>
       <%= f.text_field :skill5, :placeholder => "Skill5" %>
-      <%= f.text_field :skill6, :placeholder => "Skill6" %>
-      <%= f.text_field :skill7, :placeholder => "Skill7" %>
-      <%= f.text_field :skill8, :placeholder => "Skill8" %>
-      <%= f.text_field :skill9, :placeholder => "Skill9" %>
-      <%= f.text_field :skill10, :placeholder => "Skill10" %>
-      <%= f.submit "Skills", class: "btn-submit" %>
+      <%= f.submit "Submit", class: "btn-submit" %>
     <% end %>
   </div>
 </div>
